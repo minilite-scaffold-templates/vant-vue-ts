@@ -2,10 +2,12 @@
   "name": "demo-vite-ts",
   "private": true,
   "version": "0.0.0",
-  "eslintConfig":{
-    "plugins":["example"],
-    "env":{
-      "example/custom":true
+  "eslintConfig": {
+    "plugins": [
+      "example"
+    ],
+    "env": {
+      "example/custom": true
     }
   },
   "scripts": {
