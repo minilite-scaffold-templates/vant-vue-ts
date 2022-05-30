@@ -39,8 +39,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       host: false,
       port: VITE_PORT,
+      hmr: true, // 开启热更新
     },
-
     //  Vite插件
     plugins: createVitePlugins(viteEnv, isBuild),
 
@@ -52,6 +52,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           javascriptEnabled: true,
         },
       },
+    },
+
+    define: {
+      'process.env': process.env,
     },
 
     // 打包配置
