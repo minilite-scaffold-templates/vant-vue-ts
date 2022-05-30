@@ -20,34 +20,4 @@ export const main: Array<RouteRecordRaw> = [
       icon: 'friends-o',
     },
   },
-  {
-    name: 'mine',
-    path: '/mine',
-    component: () => import('@/views/mine/index.vue'),
-    meta: {
-      showTab: true,
-      title: '我的',
-      icon: 'friends-o',
-    },
-  },
-  {
-    name: 'mine',
-    path: '/mine',
-    component: () => import('@/views/mine/index.vue'),
-    meta: {
-      showTab: true,
-      title: '你的',
-      icon: 'friends-o',
-    },
-  },
-  {
-    name: 'mine',
-    path: '/mine',
-    component: () => import('@/views/mine/index.vue'),
-    meta: {
-      showTab: true,
-      title: '的',
-      icon: 'friends-o',
-    },
-  },
 ]
