@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
   import { main } from '@/router/main'
-  import { computed, onMounted, ref } from 'vue'
+  import { onMounted, ref } from 'vue'
 
   const tabBarList = ref<any[]>([])
   onMounted(async () => {
