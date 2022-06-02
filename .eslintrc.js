@@ -79,7 +79,7 @@ module.exports = {
     'no-shadow': 0,
     'class-methods-use-this': 'off',
     'no-restricted-syntax': ['error', 'WithStatement', 'BinaryExpression[operator="in"]'],
-    'guard-for-in': 0,
+    'guard-for-in': 'error',
     'import/no-cycle': [2, { maxDepth: 1 }],
     'prefer-destructuring': [
       'error',

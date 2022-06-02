@@ -12,7 +12,9 @@ export function setObjToUrlParams(baseUrl: string, obj: any): string {
   let parameters = ''
   let url = ''
   for (const key in obj) {
-    parameters += `${key}=${encodeURIComponent(obj[key])}&`
+    if (obj.hasOwnproperty(key)) {
+      parameters += `${key}=${encodeURIComponent(obj[key])}&`
+    }
   }
   parameters = parameters.replace(/&$/, '')
   if (/\?$/.test(baseUrl)) {
