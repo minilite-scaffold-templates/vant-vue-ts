@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-// import routerData from '@/utils/routerData'
 import { main } from './main'
 
 const routes: Array<RouteRecordRaw> = [
@@ -14,14 +13,6 @@ const routes: Array<RouteRecordRaw> = [
     children: [...main],
   },
 ]
-// routerData.forEach((item) => {
-//   return routes.push({
-//     path: item.path,
-//     name: item.name,
-//     component: () => import(`../views/${item.component}.vue`),
-//   })
-
-// })
 const router = createRouter({
   history: createWebHashHistory(),
   routes,

@@ -1,9 +1,6 @@
 <template>
   <div class="app-container">
-    <div class="layout-footer">
-      这是首页
-      <!-- <TabBar :tabbars="tabBarList" :default-active="defaultActive" @change="handleChange"/> -->
-    </div>
+    <div class="layout-footer"> 这是首页 </div>
   </div>
 </template>
 

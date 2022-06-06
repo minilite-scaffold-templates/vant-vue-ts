@@ -1,10 +1,13 @@
 import type { ConfigEnv, UserConfig } from 'vite'
 import { loadEnv } from 'vite'
 import { resolve } from 'path'
+import vue from '@vitejs/plugin-vue'
+import styleImport from 'vite-plugin-style-import'
 import { wrapperEnv } from './build/utils'
 import createVitePlugins from './build/vite/plugin'
 import modifyVars from './build/theme/arco/modifyVars'
 import OUTPUT_DIR from './build/constant'
+// vite.config.js
 
 function pathResolve(dir: string): string {
   return resolve(process.cwd(), '.', dir)
@@ -41,14 +44,16 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       port: VITE_PORT,
       hmr: true, // 开启热更新
     },
-    //  Vite插件
     plugins: createVitePlugins(viteEnv, isBuild),
 
     // Css预处理
     css: {
       preprocessorOptions: {
         less: {
-          modifyVars,
+          // 自定义vant主题颜色
+          modifyVars: {
+            hack: `true; @import "${resolve('./src/assets/less/vant.less')}";`,
+          },
           javascriptEnabled: true,
         },
       },
