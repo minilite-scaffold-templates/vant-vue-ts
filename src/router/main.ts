@@ -8,6 +8,7 @@ export const main: Array<RouteRecordRaw> = [
     meta: {
       title: '首页',
       icon: 'home-o',
+      showTab: true,
     },
   },
   {
@@ -17,6 +18,16 @@ export const main: Array<RouteRecordRaw> = [
     meta: {
       showTab: true,
       title: '我的',
+      icon: 'friends-o',
+    },
+  },
+  {
+    name: 'personal',
+    path: '/personal',
+    component: () => import('@/views/personal/index.vue'),
+    meta: {
+      showTab: true,
+      title: '个人中心',
       icon: 'friends-o',
     },
   },

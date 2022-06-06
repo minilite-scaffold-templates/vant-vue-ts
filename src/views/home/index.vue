@@ -4,8 +4,4 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  const props = defineProps({
-    prefix: { type: String, default: 'icon' },
-  })
-</script>
+<script lang="ts" setup></script>
