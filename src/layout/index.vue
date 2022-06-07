@@ -1,5 +1,6 @@
 <template>
-  <TabBar :tab-bar-set="tabBarParam" :tab-bar-array="main" />
+  <!-- <TabBar :tab-bar-set="tabBarParam" :tab-bar-array="main" /> -->
+  layout
 </template>
 
 <script lang="ts" setup>

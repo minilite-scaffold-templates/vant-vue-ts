@@ -13,8 +13,6 @@ export interface ITabBarType {
 }
 export interface ITemplate {
   width: string
-  // left: string
-  // bottom: string,
   // right: string,
   height: string
   position: string

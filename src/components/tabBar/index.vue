@@ -32,7 +32,7 @@
     </template>
   </van-tabbar>
 
-  <!-- 自定义tabBar模板 -->
+  <!-- 自定义tabBar左右显示 -->
   <div v-else>
     <van-popup
       v-if="customTabBar?.position === 'left' || customTabBar?.position === 'right'"
@@ -76,10 +76,15 @@
   import { ITabBarType, ITabBarSetType, ITemplate } from './type/index'
   import { heightList } from './type/heightList'
 
-  const { getTabBarHeight } = useProjectSetting()
+  // const yyyy = useProjectSetting()
   // const { getInActiveColor, getActiveColor, getTabBarHeight, getShowTemplate, getTabBarPosition } = useProjectSetting()
   // const inActiveColor = ref<ComputedRef<string>>(getTabBarHeight)
-  console.log('99999', getTabBarHeight)
+  // const inActiveColor = ref<ComputedRef<string>>(getInActiveColor)
+  // const inActiveColor = ref<ComputedRef<string>>(getActiveColor)
+  // const inActiveColor = ref<ComputedRef<any>>(getShowTemplate)
+  // const inActiveColor = ref<ComputedRef<string>>(getTabBarPosition)
+
+  // console.log('99999', yyyy, useProjectSetting?.getTabBarPosition)
 
   // 自定义图标、颜色、高度、模板
   const props = defineProps<{
@@ -87,9 +92,6 @@
     tabBarArray?: ITabBarType
     heightList?: Array
   }>()
-  // const tabBarHeight = ref(getTabBarHeight)
-  // console.log(9999, inActiveColor, activeColor, tabBarHeight)
-
   const tabBarList = ref<any[]>([])
   const defaultIcon = ref()
   const customTabBar = ref() // 自定义模板
