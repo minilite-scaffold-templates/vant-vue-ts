@@ -71,7 +71,7 @@
 <script lang="ts" setup>
   import { onMounted, ref, ComputedRef, defineProps } from 'vue'
   import { Tabbar, TabbarItem } from 'vant'
-  import App from '@/App.vue'
+
   import { useProjectSetting } from '@/hooks/setting/useProjectSetting'
   import { ITabBarType, ITabBarSetType, ITemplate } from './type/index'
   import { heightList } from './type/heightList'
@@ -85,7 +85,7 @@
   const props = defineProps<{
     tabBarSet?: ITabBarSetType
     tabBarArray?: ITabBarType
-    heightList?: Array
+    heightList?: Array<any>
   }>()
   // const tabBarHeight = ref(getTabBarHeight)
   // console.log(9999, inActiveColor, activeColor, tabBarHeight)
