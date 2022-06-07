@@ -2,11 +2,12 @@
   <router-view></router-view>
 </template>
 
-<script lang="ts">
-  import { defineComponent } from 'vue'
+<script lang="ts" setup>
+  import { onMounted, ref, defineProps } from 'vue'
 
-  export default defineComponent({
-    name: 'App',
+  onMounted(async () => {
+    // （设置默认主题色）
+    document.getElementById('app').setAttribute('class', 'theme_1')
   })
 </script>
 
