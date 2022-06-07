@@ -16,6 +16,8 @@ import {
   Sidebar,
   SidebarItem,
   Popup,
+  Field,
+  CellGroup,
 } from 'vant'
 
 const plugins = [
@@ -35,6 +37,8 @@ const plugins = [
   Sidebar,
   SidebarItem,
   Popup,
+  Field,
+  CellGroup,
 ]
 
 export const vantPlugins = {
