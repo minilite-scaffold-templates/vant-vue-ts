@@ -1,10 +1,10 @@
 <template>
   <van-nav-bar v-if="customTabBar" :title="$route.meta?.title">
-    <template #left>
+    <template v-if="customTabBar?.position === 'left'" #left>
       <van-icon name="wap-nav" size="18" @click="showTabBar" />
     </template>
-    <template #right>
-      <!-- <van-icon name="search" size="18" /> -->
+    <template v-else #right>
+      <van-icon name="wap-nav" size="18" @click="showTabBar" />
     </template>
   </van-nav-bar>
 
@@ -20,8 +20,6 @@
     class="tabrList"
     :style="{
       height: heightList.find((item) => item.name === tabBarSet?.tabBarHeight)?.value || tabBarSet?.tabBarHeight,
-      top: showPosition === 'top' && 0,
-      bottom: showPosition === 'top' && 'unset',
     }"
   >
     <template v-for="item in tabBarList" :key="item.name">
@@ -43,30 +41,59 @@
       :style="{ height: '100%', width: customTabBar?.width }"
       class="flexCenter"
     >
-      <div>自定义模板</div>
+      <van-tabbar
+        route
+        :border="false"
+        :active-color="tabBarSet?.activeColor"
+        :inactive-color="tabBarSet?.inActiveColor"
+        class="tabBarContent"
+        :style="{
+          height: customTabBar?.height,
+        }"
+      >
+        <template v-for="item in tabBarList" :key="item.name">
+          <van-tabbar-item :to="item.path" replace :icon="item.meta?.icon">
+            <span>{{ item.meta?.title }} </span>
+            <template v-if="defaultIcon" #icon="">
+              <img :src="defaultIcon" />
+            </template>
+          </van-tabbar-item>
+        </template>
+      </van-tabbar>
     </van-popup>
+    <!-- 自定义tabBar上下显示 -->
     <div v-else class="customTab">
-      <slot name="showTemplate"> 我的自定义模板 </slot>
+      <slot name="showTemplate"> </slot>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref, defineProps, unref } from 'vue'
+  import { onMounted, ref, ComputedRef, defineProps } from 'vue'
   import { Tabbar, TabbarItem } from 'vant'
   import App from '@/App.vue'
-  import { ITabBarType, ITabBarSetType, heightList, ITemplate } from './type/index'
+  import { useProjectSetting } from '@/hooks/setting/useProjectSetting'
+  import { ITabBarType, ITabBarSetType, ITemplate } from './type/index'
+  import { heightList } from './type/heightList'
 
-  // 自定义图标、颜色、高度、模板、tabbar位置
+  const { getTabBarHeight } = useProjectSetting()
+  // const { getInActiveColor, getActiveColor, getTabBarHeight, getShowTemplate, getTabBarPosition } = useProjectSetting()
+  // const inActiveColor = ref<ComputedRef<string>>(getTabBarHeight)
+  console.log('99999', getTabBarHeight)
+
+  // 自定义图标、颜色、高度、模板
   const props = defineProps<{
     tabBarSet?: ITabBarSetType
     tabBarArray?: ITabBarType
     heightList?: Array
   }>()
+  // const tabBarHeight = ref(getTabBarHeight)
+  // console.log(9999, inActiveColor, activeColor, tabBarHeight)
+
   const tabBarList = ref<any[]>([])
   const defaultIcon = ref()
-  const customTabBar = ref()
-  const showPosition = ref()
+  const customTabBar = ref() // 自定义模板
+  const showPosition = ref() // tabbar显示位置
   const visible = ref(false)
 
   onMounted(async () => {
@@ -89,5 +116,10 @@
     // bottom: v-bind(positionBottom);
     left: 0px;
     right: 0px;
+  }
+  .tabBarContent {
+    height: 300px;
+    flex-direction: column;
+    top: 36px;
   }
 </style>

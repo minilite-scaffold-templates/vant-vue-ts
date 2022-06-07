@@ -16,6 +16,7 @@ import {
   Sidebar,
   SidebarItem,
   Popup,
+  ConfigProvider,
 } from 'vant'
 
 const plugins = [
@@ -35,10 +36,11 @@ const plugins = [
   Sidebar,
   SidebarItem,
   Popup,
+  ConfigProvider,
 ]
 
 export const vantPlugins = {
-  install (app: App) {
+  install(app: App) {
     plugins.forEach((item) => {
       app.use(item)
     })

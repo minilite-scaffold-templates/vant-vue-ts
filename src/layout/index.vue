@@ -16,6 +16,7 @@
     // showTemplate: {
     //   position: 'right',
     //   width: '30%',
+    //   height: '300px',
     // },
 
     // tabBarIcon: 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png',
