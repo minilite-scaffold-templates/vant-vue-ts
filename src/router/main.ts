@@ -18,7 +18,7 @@ export const main: Array<RouteRecordRaw> = [
     meta: {
       showTab: true,
       title: '我的',
-      icon: 'friends-o',
+      icon: 'manager-o',
     },
   },
   {

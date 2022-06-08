@@ -19,6 +19,8 @@ import {
   Field,
   CellGroup,
   ConfigProvider,
+  Image as VanImage,
+  Lazyload,
 } from 'vant'
 
 const plugins = [
@@ -41,6 +43,8 @@ const plugins = [
   Field,
   CellGroup,
   ConfigProvider,
+  Lazyload,
+  VanImage,
 ]
 
 export const vantPlugins = {

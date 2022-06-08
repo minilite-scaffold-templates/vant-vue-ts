@@ -35,4 +35,5 @@ export interface ITabBarSetType {
   /** 主题色 */
   navTheme?: NAV_THEME
   /** tabBar间距 */
+  tabMargin?: string
 }

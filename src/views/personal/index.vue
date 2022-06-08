@@ -1,12 +1,21 @@
 <template>
-  <div class="container"> 个人中心 </div>
-  <!-- <div class="header">
-    <van-skeleton title avatar :row="3" />
-    <div class="userInfo"></div>
+  <div class="container">
+    <Header />
+    <MyBusiness />
   </div>
-  <div>15281353924</div> -->
+
+  <!-- 个人资料 我的订单 常用工具 -->
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import Header from './components/header/index'
+  import MyBusiness from './components/myBusiness/index'
+  // import { List } from './components/myBusiness/businessList'
 </script>
+
+<style scoped>
+  .container {
+    padding: 30px 20px;
+  }
+</style>

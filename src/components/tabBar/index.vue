@@ -7,7 +7,7 @@
       <van-icon name="wap-nav" size="18" @click="showTabBar" />
     </template>
   </van-nav-bar>
-  <div class="container"> <router-view /> </div>
+  <div class="container"><router-view /> </div>
   <van-tabbar
     v-if="!customTabBar"
     route
@@ -16,6 +16,7 @@
     class="tabrList"
     :style="{
       height: heightList.find((item) => item.name === tabBarHeight)?.value || tabBarHeight,
+      bottom: tabBarBottom,
     }"
   >
     <template v-for="item in tabBarList" :key="item.name">
@@ -65,29 +66,31 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref, ComputedRef, toRaw, toRef } from 'vue'
+  import { onMounted, ref, ComputedRef, toRaw } from 'vue'
   import { Tabbar, TabbarItem } from 'vant'
   import { useProjectSetting } from '@/hooks/setting/useProjectSetting'
   import { main } from '@/router/main'
   import { ITabBarType, ITabBarSetType, ITemplate } from './type/index'
   import { heightList } from './type/heightList'
 
-  const { getInActiveColor, getActiveColor, getTabBarHeight, getShowTemplate, getTabBarPosition, getTabBarIcon } =
-    useProjectSetting()
+  const {
+    getInActiveColor,
+    getActiveColor,
+    getTabBarHeight,
+    getShowTemplate,
+    getTabBarPosition,
+    getTabBarIcon,
+    getTabMargin,
+  } = useProjectSetting()
   const tabBarHeight = ref<ComputedRef<string>>(getTabBarHeight)
   const activeColor = ref<ComputedRef<string>>(getActiveColor)
   const inActiveColor = ref<ComputedRef<string>>(getInActiveColor)
   const customTabBar = ref<ComputedRef<string>>(getShowTemplate)
   const showPosition = ref<ComputedRef<string>>(getTabBarPosition)
   const defaultIcon = ref<ComputedRef<string>>(getTabBarIcon)
+  const tabBarBottom = ref<ComputedRef<string>>(getTabMargin) || '0px'
+  console.log('tabBarBottom', getTabMargin, tabBarBottom)
   const { height = '', position = '', width = '' } = toRaw(customTabBar?.value)
-
-  // 自定义图标、颜色、高度、模板
-  const props = defineProps<{
-    tabBarSet?: ITabBarSetType
-    tabBarArray?: ITabBarType
-    heightList?: Array<any>
-  }>()
   const tabBarList = ref<any[]>([])
   const visible = ref(false)
 
@@ -104,7 +107,6 @@
 <style scoped lang="less">
   .customTab {
     position: fixed;
-    // bottom: v-bind(positionBottom);
     left: 0px;
     right: 0px;
   }
