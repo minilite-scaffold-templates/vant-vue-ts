@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref } from 'vue'
   // const defaultAvatar = require('@/assets/default_avatar.png');
 
   // onMounted(async () => {

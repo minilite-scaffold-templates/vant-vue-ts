@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import Header from './components/header/index'
   import MyBusiness from './components/myBusiness/index'
   // import { List } from './components/myBusiness/businessList'

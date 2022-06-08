@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref, defineProps } from 'vue'
   import { List } from './businessList'
 </script>
 

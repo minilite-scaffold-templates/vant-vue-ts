@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref } from 'vue'
   import theme from '@/style/theme.module.less'
 
   const themeVars = { ...theme }
