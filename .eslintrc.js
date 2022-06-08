@@ -93,5 +93,7 @@ module.exports = {
     ],
     'no-lonely-if': 'error',
     'no-nested-ternary': 0,
+    'no-plusplus': 0,
+    'consistent-return': 0,
   },
 }
