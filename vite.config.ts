@@ -52,7 +52,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         less: {
           // 自定义vant主题颜色
           modifyVars: {
-            hack: `true; @import "${resolve('./src/assets/less/vant.less')}";`,
+            hack: `true; @import "${resolve('./src/assets/less/global.less')}";`,
           },
           javascriptEnabled: true,
         },

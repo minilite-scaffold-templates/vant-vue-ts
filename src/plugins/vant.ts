@@ -18,6 +18,7 @@ import {
   Popup,
   Field,
   CellGroup,
+  ConfigProvider,
 } from 'vant'
 
 const plugins = [
@@ -39,6 +40,7 @@ const plugins = [
   Popup,
   Field,
   CellGroup,
+  ConfigProvider,
 ]
 
 export const vantPlugins = {
