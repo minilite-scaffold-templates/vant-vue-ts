@@ -1,26 +1,25 @@
 <template>
   <div class="rotation">
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
+    <van-swipe :autoplay="3000" class="my-swipe" lazy-render>
+      <van-swipe-item v-for="image in images" :key="image">
+        <img :src="image" />
+      </van-swipe-item>
     </van-swipe>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { onMounted } from 'vue'
-  import { getRotaImages } from '@/api/rota/imagesList'
+  import { onMounted, ref } from 'vue'
+  import { getRotaImages } from '@/api/home/imagesList'
 
   // 数据在下面定义
+  const images = ref([])
 
   // 函数写在这下面
   // 获取轮播图图片数据
   const getRotationImages = async () => {
-    console.log('🚀🚀🚀sssss')
     const res = await getRotaImages()
-    console.log('🚀🚀🚀sssss', res)
+    images.value = res.list
   }
 
   onMounted(() => {
@@ -32,12 +31,12 @@
   .rotation {
     margin-bottom: 10px;
   }
-
   .my-swipe .van-swipe-item {
-    color: #fff;
-    font-size: 20px;
-    line-height: 200px;
-    text-align: center;
-    background-color: #39a9ed;
+    width: 100%;
+    height: 200px;
+  }
+  .my-swipe .van-swipe-item img {
+    width: 100%;
+    height: 100%;
   }
 </style>
