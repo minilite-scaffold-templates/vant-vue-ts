@@ -13,15 +13,6 @@
 <script lang="ts" setup>
   import { onMounted, ref, defineProps } from 'vue'
   import { List } from './businessList'
-
-  // 自定义图标、颜色、高度、模板
-  const props = defineProps<{
-    // List: any
-  }>()
-  // onMounted(async () => {
-  //   // （设置默认主题色）
-  //   document.getElementById('app').setAttribute('class', 'theme_1')
-  // })
 </script>
 
 <style scoped lang="less">

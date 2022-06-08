@@ -67,29 +67,18 @@
 
 <script lang="ts" setup>
   import { onMounted, ref, ComputedRef, toRaw } from 'vue'
-  import { Tabbar, TabbarItem } from 'vant'
   import { useProjectSetting } from '@/hooks/setting/useProjectSetting'
   import { main } from '@/router/main'
-  import { ITabBarType, ITabBarSetType, ITemplate } from './type/index'
   import { heightList } from './type/heightList'
 
-  const {
-    getInActiveColor,
-    getActiveColor,
-    getTabBarHeight,
-    getShowTemplate,
-    getTabBarPosition,
-    getTabBarIcon,
-    getTabMargin,
-  } = useProjectSetting()
+  const { getInActiveColor, getActiveColor, getTabBarHeight, getShowTemplate, getTabBarIcon, getTabMargin } =
+    useProjectSetting()
   const tabBarHeight = ref<ComputedRef<string>>(getTabBarHeight)
   const activeColor = ref<ComputedRef<string>>(getActiveColor)
   const inActiveColor = ref<ComputedRef<string>>(getInActiveColor)
   const customTabBar = ref<ComputedRef<string>>(getShowTemplate)
-  const showPosition = ref<ComputedRef<string>>(getTabBarPosition)
   const defaultIcon = ref<ComputedRef<string>>(getTabBarIcon)
   const tabBarBottom = ref<ComputedRef<string>>(getTabMargin) || '0px'
-  console.log('tabBarBottom', getTabMargin, tabBarBottom)
   const { height = '', position = '', width = '' } = toRaw(customTabBar?.value)
   const tabBarList = ref<any[]>([])
   const visible = ref(false)
