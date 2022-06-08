@@ -22,6 +22,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 5px auto;
   }
 </style>

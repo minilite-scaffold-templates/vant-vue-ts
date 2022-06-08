@@ -9,10 +9,10 @@ import { storage } from '@/utils/Storage'
 
 import { useGlobSetting } from '@/hook/setting'
 
-// import { useUserStoreWidthOut } from '@/store/modules/user'
+import { useUserStoreWidthOut } from '@/store/user'
 
 import { RequestOptions, Result } from './types'
-import { joinTimestamp, formatRequestDate } from './helper'
+import { joinTimestamp } from './helper'
 import { checkStatus } from './checkStatus'
 import { AxiosTransform } from './axiosTransform'
 import { VAxios } from './Axios'
@@ -153,7 +153,7 @@ const transform: AxiosTransform = {
 
   // 请求之前处理config
   beforeRequestHook: (config, options) => {
-    const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true } = options
+    const { apiUrl, joinPrefix, joinParamsToUrl, joinTime = true } = options
 
     if (joinPrefix) {
       config.url = `${urlPrefix}${config.url}`
@@ -176,7 +176,6 @@ const transform: AxiosTransform = {
         config.params = undefined
       }
     } else if (!isString(params)) {
-      formatDate && formatRequestDate(params)
       if (Reflect.has(config, 'data') && config.data && Object.keys(config.data).length) {
         config.data = data
         config.params = params
@@ -198,17 +197,17 @@ const transform: AxiosTransform = {
   /**
    * @description: 请求拦截器处理
    */
-  // requestInterceptors: (config: any) => {
-  //   // 请求之前处理config
-  //   const userStore = useUserStoreWidthOut()
-  //   const token = userStore.getToken
-  //   if (token) {
-  //     // jwt token
-  //     config.headers.Authorization = token
-  //     config.headers['Accept-Language'] = 'zh-CN'
-  //   }
-  //   return config
-  // },
+  requestInterceptors: (config: any) => {
+    // 请求之前处理config
+    const userStore = useUserStoreWidthOut()
+    const token = userStore.getToken
+    if (token) {
+      // jwt token
+      config.headers.Authorization = token
+      config.headers['Accept-Language'] = 'zh-CN'
+    }
+    return config
+  },
 
   /**
    * @description: 响应错误处理

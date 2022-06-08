@@ -65,7 +65,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref, ComputedRef, defineProps, toRaw, toRef } from 'vue'
+  import { onMounted, ref, ComputedRef, toRaw, toRef } from 'vue'
   import { Tabbar, TabbarItem } from 'vant'
   import { useProjectSetting } from '@/hooks/setting/useProjectSetting'
   import { main } from '@/router/main'

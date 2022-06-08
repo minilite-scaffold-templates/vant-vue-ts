@@ -11,11 +11,21 @@
 
 <script lang="ts" setup>
   import { onMounted } from 'vue'
+  import { getRotaImages } from '@/api/rota/imagesList'
 
-  onMounted(() => {})
   // 数据在下面定义
 
   // 函数写在这下面
+  // 获取轮播图图片数据
+  const getRotationImages = async () => {
+    console.log('🚀🚀🚀sssss')
+    const res = await getRotaImages()
+    console.log('🚀🚀🚀sssss', res)
+  }
+
+  onMounted(() => {
+    getRotationImages()
+  })
 </script>
 
 <style lang="less" scoped>

@@ -3,6 +3,7 @@ import { ACCESS_TOKEN, CURRENT_USER } from '@/store/mutation-types'
 import { encryptBase64 } from '@/utils/encrypt'
 import { createStorage, storage } from '@/utils/Storage'
 import { defineStore } from 'pinia'
+import { login } from '@/api/auth/user'
 
 const Storage = createStorage({ storage: localStorage })
 
@@ -58,17 +59,17 @@ const useUserStore = defineStore({
       try {
         const info = encryptBase64(JSON.stringify(params))
         console.log(info)
-        // const result = await login({ info })
-        // const { token } = result.data.data
-        // if (token) {
-        //   const ex = 7 * 24 * 60 * 60 * 1000
-        //   storage.set(ACCESS_TOKEN, token, ex)
-        //   this.setToken(token)
+        const result = await login({ info })
+        const { token } = result.data.data
+        if (token) {
+          const ex = 7 * 24 * 60 * 60 * 1000
+          storage.set(ACCESS_TOKEN, token, ex)
+          this.setToken(token)
 
-        //   await this.getInfo()
+          await this.getInfo()
 
-        //   return Promise.resolve(result)
-        // }
+          return Promise.resolve(result)
+        }
       } catch (e) {
         return Promise.reject(e)
       }
