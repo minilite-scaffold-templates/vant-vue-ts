@@ -65,7 +65,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref, ComputedRef, defineProps, toRaw, toRef } from 'vue'
+  import { onMounted, ref, ComputedRef, toRaw } from 'vue'
   import { Tabbar, TabbarItem } from 'vant'
   import { useProjectSetting } from '@/hooks/setting/useProjectSetting'
   import { main } from '@/router/main'
@@ -81,13 +81,6 @@
   const showPosition = ref<ComputedRef<string>>(getTabBarPosition)
   const defaultIcon = ref<ComputedRef<string>>(getTabBarIcon)
   const { height = '', position = '', width = '' } = toRaw(customTabBar?.value)
-
-  // 自定义图标、颜色、高度、模板
-  const props = defineProps<{
-    tabBarSet?: ITabBarSetType
-    tabBarArray?: ITabBarType
-    heightList?: Array<any>
-  }>()
   const tabBarList = ref<any[]>([])
   const visible = ref(false)
 
@@ -104,7 +97,6 @@
 <style scoped lang="less">
   .customTab {
     position: fixed;
-    // bottom: v-bind(positionBottom);
     left: 0px;
     right: 0px;
   }

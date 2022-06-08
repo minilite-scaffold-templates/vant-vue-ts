@@ -17,6 +17,8 @@ import {
   SidebarItem,
   Popup,
   ConfigProvider,
+  Image as VanImage,
+  Lazyload,
 } from 'vant'
 
 const plugins = [
@@ -37,6 +39,8 @@ const plugins = [
   SidebarItem,
   Popup,
   ConfigProvider,
+  Lazyload,
+  VanImage,
 ]
 
 export const vantPlugins = {
