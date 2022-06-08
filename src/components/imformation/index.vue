@@ -5,7 +5,7 @@
         <img :src="item.img" alt="" />
       </div>
       <div>
-        <h3>{{ item.title }}</h3>
+        <h4>{{ item.title }}</h4>
         <span>{{ item.content }}</span>
       </div>
     </div>
@@ -50,5 +50,6 @@
   .picture img {
     width: 100%;
     height: 100%;
+    border-radius: 20px;
   }
 </style>

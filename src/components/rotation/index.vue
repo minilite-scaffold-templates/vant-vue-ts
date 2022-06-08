@@ -31,6 +31,9 @@
   .rotation {
     margin-bottom: 10px;
   }
+  .my-swipe {
+    border-radius: 20px;
+  }
   .my-swipe .van-swipe-item {
     width: 100%;
     height: 200px;

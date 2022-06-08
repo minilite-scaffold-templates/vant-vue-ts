@@ -22,6 +22,5 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 5px auto;
   }
 </style>

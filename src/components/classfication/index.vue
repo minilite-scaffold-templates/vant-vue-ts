@@ -29,18 +29,13 @@
 
 <style lang="less" scoped>
   .classfication {
-    margin: 10px;
     display: flex;
     flex-wrap: wrap;
-    padding-left: 5px;
   }
   .smallBlock {
-    width: 60px;
+    width: 20%;
     height: 60px;
-    margin: 5px 15px 5px 0;
-    &:nth-child(5n) {
-      margin-right: 0px;
-    }
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
