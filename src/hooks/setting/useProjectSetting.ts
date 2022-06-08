@@ -18,6 +18,8 @@ export function useProjectSetting() {
 
   const getTabBarIcon = computed(() => projectStore.tabBarIcon)
 
+  const getTabMargin = computed(() => projectStore.tabMargin)
+
   return {
     getTabBarPosition,
     getNavTheme,
@@ -26,5 +28,6 @@ export function useProjectSetting() {
     getTabBarHeight,
     getActiveColor,
     getTabBarIcon,
+    getTabMargin,
   }
 }

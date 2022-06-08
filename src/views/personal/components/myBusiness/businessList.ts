@@ -32,7 +32,6 @@ export const List = [
   {
     title: '常用工具',
     color: '#5f5b5b',
-
     bussinessList: [
       {
         name: '就诊卡',

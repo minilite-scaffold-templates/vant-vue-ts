@@ -26,6 +26,7 @@ const setting = {
   tabBarPosition: TABBAR_MODE.TOP,
   // 导航主题
   navTheme: NAV_THEME.LIGHT,
+  tabMargin: '0px',
 }
 export default setting
 

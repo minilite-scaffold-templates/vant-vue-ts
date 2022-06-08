@@ -7,7 +7,7 @@
       <van-icon name="wap-nav" size="18" @click="showTabBar" />
     </template>
   </van-nav-bar>
-  <div class="container"> <router-view /> </div>
+  <div class="container"><router-view /> </div>
   <van-tabbar
     v-if="!customTabBar"
     route
@@ -16,6 +16,7 @@
     class="tabrList"
     :style="{
       height: heightList.find((item) => item.name === tabBarHeight)?.value || tabBarHeight,
+      bottom: tabBarBottom,
     }"
   >
     <template v-for="item in tabBarList" :key="item.name">
@@ -72,14 +73,23 @@
   import { ITabBarType, ITabBarSetType, ITemplate } from './type/index'
   import { heightList } from './type/heightList'
 
-  const { getInActiveColor, getActiveColor, getTabBarHeight, getShowTemplate, getTabBarPosition, getTabBarIcon } =
-    useProjectSetting()
+  const {
+    getInActiveColor,
+    getActiveColor,
+    getTabBarHeight,
+    getShowTemplate,
+    getTabBarPosition,
+    getTabBarIcon,
+    getTabMargin,
+  } = useProjectSetting()
   const tabBarHeight = ref<ComputedRef<string>>(getTabBarHeight)
   const activeColor = ref<ComputedRef<string>>(getActiveColor)
   const inActiveColor = ref<ComputedRef<string>>(getInActiveColor)
   const customTabBar = ref<ComputedRef<string>>(getShowTemplate)
   const showPosition = ref<ComputedRef<string>>(getTabBarPosition)
   const defaultIcon = ref<ComputedRef<string>>(getTabBarIcon)
+  const tabBarBottom = ref<ComputedRef<string>>(getTabMargin) || '0px'
+  console.log('tabBarBottom', getTabMargin, tabBarBottom)
   const { height = '', position = '', width = '' } = toRaw(customTabBar?.value)
   const tabBarList = ref<any[]>([])
   const visible = ref(false)

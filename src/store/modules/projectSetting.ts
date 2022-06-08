@@ -12,9 +12,11 @@ interface ProjectSettingState {
   tabBarHeight: string
   showTemplate: any
   tabBarIcon: string
+  tabMargin: string
 }
 
-const { inActiveColor, activeColor, tabBarHeight, tabBarPosition, showTemplate, tabBarIcon, navTheme } = projectSetting
+const { inActiveColor, activeColor, tabBarHeight, tabBarPosition, showTemplate, tabBarIcon, navTheme, tabMargin } =
+  projectSetting
 
 const useProjectSettingStore = defineStore({
   id: 'app-project-setting',
@@ -26,6 +28,7 @@ const useProjectSettingStore = defineStore({
     showTemplate,
     navTheme,
     tabBarIcon,
+    tabMargin,
   }),
   getters: {
     getInActiveColor(): string {
@@ -48,6 +51,9 @@ const useProjectSettingStore = defineStore({
     },
     getTabBarIcon(): string {
       return this.tabBarIcon
+    },
+    getTabMargin(): string {
+      return this.tabMargin
     },
   },
   actions: {
@@ -76,6 +82,9 @@ const useProjectSettingStore = defineStore({
     },
     setTabBarIcon(value: string) {
       this.tabBarIcon = value
+    },
+    setTabMargin(value: string) {
+      this.tabMargin = value
     },
   },
 })
