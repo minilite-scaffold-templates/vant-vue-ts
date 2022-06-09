@@ -1,6 +1,6 @@
 <template>
   <div class="classfication">
-    <div v-for="(item, index) in arr" :key="index" class="smallBlock">
+    <div v-for="(item, index) in ficationList" :key="index" class="smallBlock">
       <div class="ficationIcon">
         <van-icon :name="item.icon" :color="item.color" />
       </div>
@@ -10,21 +10,18 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref } from 'vue'
-  import { getFicationMenus } from '@/api/home/menus'
+  import { defineProps } from 'vue'
 
+  defineProps<{
+    ficationList: {
+      icon: string
+      lable: string
+      color: string
+    }[]
+  }>()
   // 数据在下面定义
-  const arr = ref([] as any)
 
   // 函数写在这下面
-  const getMenus = async () => {
-    const res = await getFicationMenus()
-    arr.value = res.list
-  }
-
-  onMounted(() => {
-    getMenus()
-  })
 </script>
 
 <style lang="less" scoped>
