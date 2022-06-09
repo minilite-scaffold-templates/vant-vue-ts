@@ -4,11 +4,11 @@ import theme from '@/style/theme.module.less'
 const tabrBarTheme = { ...theme }
 const { inActiveColor = '', activeColor = '' } = tabrBarTheme
 
-const templateParams = {
-  position: 'right',
-  width: '30%',
-  height: '300px',
-}
+// const templateParams = {
+//   position: 'right',
+//   width: '30%',
+//   height: '300px',
+// }
 const setting = {
   /** 未选中tabBar标签的颜色 */
   inActiveColor,
